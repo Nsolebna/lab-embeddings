@@ -2,20 +2,34 @@
 
 # Lab | Embeddings
 
+
 ## Introduction
 
-In this lab, you will deepen your understanding of embeddings by applying them to practical tasks such as semantic similarity, clustering, and building a semantic search system. These exercises are designed to reinforce the concepts discussed in class and provide hands-on experience with pre-trained embedding models like Sentence Transformers. By the end of the lab, you'll have built functional tools that demonstrate the power of embeddings in solving real-world problems.
+A digital bank receives thousands of support messages a day, and most of them have been asked, and answered, many times before. In this lab you build the tool that finds them: a semantic search that takes a new customer message and returns the most similar past messages and their category. You compare sentences with an embedding model, index 10,000 real customer messages, write the search function, build a TF-IDF search to compare with, measure both on 3,080 new messages, and check whether the embeddings can discover the categories on their own. In the extra task, you teach the tool to say *I'm not sure*.
+
+The lab follows the **Embeddings and Semantic Search** lesson step by step.
+
 
 ## Getting Started
 
-Complete `your-code/main.ipynb`. Follow the instructions and add your code and explanations as necessary.
+Open the `main.ipynb` file in the `your-code` directory. Follow the instructions, add your code, and answer the questions in the markdown cells. Each challenge ends with a checkpoint that tells you what you should see. The data is in the `data` folder: `banking_train.csv` has the past messages and `banking_test.csv` the new ones, both with the columns `text` and `category`.
+
+The lab needs the `sentence-transformers` library (`pip install sentence-transformers`). The first run downloads the `all-MiniLM-L6-v2` model, about 90 MB, so you need an internet connection. Everything else runs on your own computer, with no account and no API key.
 
 ## Deliverables
 
-- `main.ipynb` containing your responses.
+- `main.ipynb` with your code, its outputs, and your answers.
 
 ## Submission
 
-- Upon completion, add your deliverables to git. 
-- Then commit git and push your branch to the remote.
-- Make a pull request and paste the PR link in the submission field in the Student Portal.
+Upon completion, add your deliverables to git. Then commit git and push your branch to the remote.
+
+## Resources
+
+- [Sentence Transformers examples: Semantic search](https://github.com/huggingface/sentence-transformers/tree/main/examples/sentence_transformer/applications/semantic-search)
+- [Sentence Transformers examples: Clustering](https://github.com/huggingface/sentence-transformers/tree/main/examples/sentence_transformer/applications/clustering)
+- [scikit-learn user guide: Clustering performance evaluation](https://scikit-learn.org/stable/modules/clustering.html#clustering-performance-evaluation)
+
+## Data
+
+The Banking77 dataset was created by PolyAI and published in [Efficient Intent Detection with Dual Sentence Encoders](https://arxiv.org/abs/2003.04807) (Casanueva et al., 2020). It is available at [PolyAI-LDN/task-specific-datasets](https://github.com/PolyAI-LDN/task-specific-datasets) under the [Creative Commons Attribution 4.0 licence](https://creativecommons.org/licenses/by/4.0/). The files in `data` are the original `train.csv` and `test.csv`, renamed, with no other change.
